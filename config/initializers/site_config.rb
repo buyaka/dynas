@@ -1,0 +1,1 @@
+MODEL_PATH = '/Users/buyaka/dynas/data/models'

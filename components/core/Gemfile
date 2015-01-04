@@ -1,0 +1,10 @@
+source "https://rubygems.org"
+
+gemspec
+
+
+gem 'devise'
+gem 'nobrainer'
+gem 'devise-nobrainer'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
