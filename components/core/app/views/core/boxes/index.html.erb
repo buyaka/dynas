@@ -1,28 +1,4 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>AppID:</strong>
-  <%= @app.id %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @app.name %>
-</p>
-
-<p>
-  <strong>Note:</strong>
-  <%= @app.note %>
-</p>
-
-<p>
-  <strong>Api key:</strong>
-  <%= @app.api_key %>
-</p>
-
-<br/>
-
-<h1>Boxes</h1>
+<h1>Listing boxes</h1>
 
 <table>
   <thead>
@@ -48,7 +24,6 @@
   </tbody>
 </table>
 
+<br>
 
-<%= link_to 'Edit', edit_app_path(@app) %> |
-<%= link_to 'Back', apps_path %> |
-<%= link_to("Boxes", app_boxes_path(@app)) %>
+<%= link_to 'New Box', new_app_box_path(@app) %>

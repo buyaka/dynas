@@ -1,7 +1,5 @@
 module Core
-class AppsController < ApplicationController
-  before_filter :authenticate_member!
-  before_filter :set_db
+class AppsController < WithdbController
   before_action :set_app, only: [:show, :edit, :update, :destroy]
 
   # GET /apps
@@ -13,7 +11,7 @@ class AppsController < ApplicationController
   # GET /apps/1
   # GET /apps/1.json
   def show
-    #@boxes = Box.where(:app_id => @app.id)
+    @boxes = Box.where(:app_id => @app.id)
   end
 
   # GET /apps/new

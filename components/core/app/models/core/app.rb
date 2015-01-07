@@ -5,7 +5,6 @@ class App
   NoBrainer::Document::DynamicAttributes
   
   store_in :database => ->{ "#{Thread.current[:member]}" }
-  self.include_root_in_json = true
 
   has_many :boxes
 
