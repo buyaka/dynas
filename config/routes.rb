@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   mount Console::Engine => "/console"
   #mount Backend::Engine => "/admin"
   mount Frontend::Engine => "/"
+  #mount Api::Engine => "/api"
   
 end

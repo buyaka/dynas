@@ -10,7 +10,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
-#gem 'tzinfo-data', platforms: [:mingw, :mswin]
+gem 'tzinfo-data', platforms: [:mingw, :mswin]
 
 gem 'nobrainer'
 
@@ -19,3 +19,4 @@ gem "core", path: "components/core"
 gem "service", path: "components/service"
 gem "console", path: "components/console"
 gem "frontend", path: "components/frontend"
+gem "api", path: "components/api"

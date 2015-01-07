@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>AppID:</strong>
+  <%= @app.id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @app.name %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @app.note %>
+</p>
+
+<p>
+  <strong>Api key:</strong>
+  <%= @app.api_key %>
+</p>
+
+<br/>
+
+
+<%= link_to 'Edit', edit_app_path(@app) %> |
+<%= link_to 'Back', apps_path %>
