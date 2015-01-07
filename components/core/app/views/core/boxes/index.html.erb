@@ -17,8 +17,8 @@
         <td><%= box.app_id %></td>
         <td><%= box.note %></td>
         <td><%= link_to 'Show', [@app, box] %></td>
-        <td><%= link_to 'Edit', edit_app_box_path(box,@app) %></td>
-        <td><%= link_to 'Destroy', [@app, box], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_app_box_path(@app, box) %></td>
+        <td><%= link_to 'Destroy', [@app, box] , method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
