@@ -26,3 +26,8 @@ Things you may want to cover:
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
+
+
+curl -H "Accept: application/json" -H "Content-Type: application/json" -H "MEMBERID: 1Raq4LFZAKqEVf" -H "APPID: 1RbLQeaPv0ArmS" -X GET -d "{\"entitiy\" :\"game\"}" http://192.168.100.151:3000/main/crud_index
+
+curl -H "Accept: application/json" -H "Content-Type: application/json" -H "MEMBERID: 1Raq4LFZAKqEVf" -H "APPID: 1RbLQeaPv0ArmS" -X POST -d "{\"game\" :{\"name\":\"firstbox\",\"desc\":\"firstbox\"}}" http://192.168.100.151:3000/main/crud_index

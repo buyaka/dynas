@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   mount Frontend::Engine => "/"
   #mount Api::Engine => "/api"
   
+  #DynamicRouter.load
 end

@@ -12,7 +12,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
 
-gem 'nobrainer'
+gem 'nobrainer', path: "components/nobrainer"
 
 #components
 gem "core", path: "components/core"

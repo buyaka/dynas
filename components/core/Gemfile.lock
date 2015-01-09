@@ -40,6 +40,7 @@ GEM
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
     bcrypt (3.1.9)
+    bcrypt (3.1.9-x86-mingw32)
     builder (3.2.2)
     devise (3.4.1)
       bcrypt (~> 3.0)
@@ -140,6 +141,7 @@ GEM
 
 PLATFORMS
   ruby
+  x86-mingw32
 
 DEPENDENCIES
   core!

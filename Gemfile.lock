@@ -28,6 +28,16 @@ PATH
       rails (~> 4.1.8)
 
 PATH
+  remote: components/nobrainer
+  specs:
+    nobrainer (0.20.0)
+      activemodel (>= 4.1.0)
+      activesupport (>= 4.1.0)
+      middleware (~> 0.1.0)
+      rethinkdb (>= 1.15.0.0)
+      symbol_decoration (~> 1.1)
+
+PATH
   remote: components/service
   specs:
     service (0.0.1)
@@ -106,12 +116,6 @@ GEM
     multi_json (1.10.1)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
-    nobrainer (0.20.0)
-      activemodel (>= 4.1.0)
-      activesupport (>= 4.1.0)
-      middleware (~> 0.1.0)
-      rethinkdb (>= 1.15.0.0)
-      symbol_decoration (~> 1.1)
     oauth (0.4.7)
     oauth2 (1.0.0)
       faraday (>= 0.8, < 0.10)
@@ -207,7 +211,7 @@ DEPENDENCIES
   frontend!
   jbuilder (~> 2.0)
   jquery-rails
-  nobrainer
+  nobrainer!
   rails (= 4.1.8)
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)

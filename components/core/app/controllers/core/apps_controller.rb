@@ -11,7 +11,7 @@ class AppsController < WithdbController
   # GET /apps/1
   # GET /apps/1.json
   def show
-    @boxes = Box.where(:app_id => @app.id)
+    @entities = Entity.where(:app_id => @app.id)
   end
 
   # GET /apps/new

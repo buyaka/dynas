@@ -5,8 +5,7 @@ class App
   NoBrainer::Document::DynamicAttributes
   
   store_in :database => ->{ "#{Thread.current[:member]}" }
-
-  has_many :boxes
+  has_many :entities
 
   field :name, :type => String
   field :member_id, :type => String

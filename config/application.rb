@@ -28,5 +28,6 @@ module Dynas
     # config.i18n.default_locale = :de
     
     config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+    config.autoload_paths << Rails.root.join('lib')
   end
 end
