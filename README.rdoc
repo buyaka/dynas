@@ -1,33 +1,27 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#CURL requests
 
-Things you may want to cover:
+SELECT ALL
+curl -H "Accept: application/json" -H "Content-Type: application/json" -H "MEMBERID: 1Raq4LFZAKqEVf" -H "APPID: 1RbLQeaPv0ArmS" -X GET -d "{\"entity\" :\"game\"}" http://192.168.100.151:3000/main/crud_index
 
-* Ruby version
+SHOW
+curl -H "Accept: application/json" -H "Content-Type: application/json" -H "MEMBERID: 1Raq4LFZAKqEVf" -H "APPID: 1RbLQeaPv0ArmS" -X GET -d "{\"entity\" :\"game\",\"data\" :{\"id\":\"273adb7d-1302-4963-b141-e3339db37731\"}}" http://192.168.100.151:3000/main/crud_at
 
-* System dependencies
+INSERT
+curl -H "Accept: application/json" -H "Content-Type: application/json" -H "MEMBERID: 1Raq4LFZAKqEVf" -H "APPID: 1RbLQeaPv0ArmS" -X POST -d "{\"entity\" :\"game\",\"data\" :{\"name\":\"1game\",\"desc\":\"1game\"}}" http://192.168.100.151:3000/main/crud_index
 
-* Configuration
+UPDATE
+curl -H "Accept: application/json" -H "Content-Type: application/json" -H "MEMBERID: 1Raq4LFZAKqEVf" -H "APPID: 1RbLQeaPv0ArmS" -X PUT -d "{\"entity\" :\"game\",\"data\" :{\"desc\":\"1game\",\"id\":\"273adb7d-1302-4963-b141-e3339db37731\",\"name\":\"1game demo\"}}" http://192.168.100.151:3000/main/crud_at
 
-* Database creation
+DELETE
+curl -H "Accept: application/json" -H "Content-Type: application/json" -H "MEMBERID: 1Raq4LFZAKqEVf" -H "APPID: 1RbLQeaPv0ArmS" -X DELETE -d "{\"entity\" :\"game\",\"data\" :{\"id\":\"273adb7d-1302-4963-b141-e3339db37731\"}}" http://192.168.100.151:3000/main/crud_at
 
-* Database initialization
+#TODO
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Error handler
+Response handler
+Clean UI
+CLIENT API
 
 
-curl -H "Accept: application/json" -H "Content-Type: application/json" -H "MEMBERID: 1Raq4LFZAKqEVf" -H "APPID: 1RbLQeaPv0ArmS" -X GET -d "{\"entitiy\" :\"game\"}" http://192.168.100.151:3000/main/crud_index
-
-curl -H "Accept: application/json" -H "Content-Type: application/json" -H "MEMBERID: 1Raq4LFZAKqEVf" -H "APPID: 1RbLQeaPv0ArmS" -X POST -d "{\"game\" :{\"name\":\"firstbox\",\"desc\":\"firstbox\"}}" http://192.168.100.151:3000/main/crud_index

@@ -1,79 +1,86 @@
+require 'json'
+
 module Core
   class CrudController < ApplicationController
     before_filter :get_required_data
     respond_to :json
 
     def index
-      mdl = nil
-      jdata = nil
-
-      puts mdl.to_s
-      params[:crud].each do |key, value|
-        mdl = value
-      end
-
-      if mdl == nil
-          respond_with :status => 400
-          return
-      end
-
       @datas = NoBrainer.run { |r| 
-        r.db(@member_id).table(mdl)
+        r.db(@member_id).table(@mdl)
       }
 
-      respond_with @datas
+      respond_with(@datas, :status => 200)
     end
     
     def show
-    end
+      data_hash = JSON.parse(@jdata.to_json)
+      data_id = data_hash['id'].to_s
 
-    def new
-      @box = Box.new(:app_id => @app.id)
-    end
+      if data_id == nil
+        respond_with("{error: \"ID not found!\"}", :status => 200, :location => nil)
+        return
+      end
 
-    def edit
+      @result = NoBrainer.run { |r| 
+        r.db(@member_id).table(@mdl).get(data_id)
+      }
+
+      respond_with(@result, :status => 200, :location => nil)
     end
 
     def create
-      mdl = nil
-      jdata = nil
-      params[:crud].each do |key, value|
-        mdl = key
-        jdata = value
-      end
-      
-      if mdl == nil or jdata == nil 
-          respond_with :status => 400
+      if @jdata == nil 
+          respond_with :status => 405
           return
       end
 
       @result = NoBrainer.run { |r| 
-        r.db(@member_id).table(mdl).insert(jdata)
+        r.db(@member_id).table(@mdl).insert(@jdata)
       }
 
-      respond_with @result
+      respond_with(@result, :status => 200, :location => nil)
     end
 
     def update
-      respond_to do |format|
-        if @box.update(box_params)
-          format.json { render :show, status: :ok, location: @box }
-        else
-          format.json { render json: @box.errors, status: :unprocessable_entity }
-        end
+      data_hash = JSON.parse(@jdata.to_json)
+      data_id = data_hash['id'].to_s
+
+      if data_id == nil
+        respond_with("{error: \"ID not found!\"}", :status => 200, :location => nil)
+        return
       end
+
+      @result = NoBrainer.run { |r| 
+        r.db(@member_id).table(@mdl).get(data_id).update(@jdata)
+      }
+
+      respond_with(@result, :status => 200, :location => nil)
     end
 
     def destroy
-      @box.destroy
-      respond_to do |format|
-        format.json { head :no_content }
+      data_hash = JSON.parse(@jdata.to_json)
+      data_id = data_hash['id'].to_s
+
+      if data_id == nil
+        respond_with("{error: \"ID not found!\"}", :status => 200, :location => nil)
+        return
       end
+
+      @result = NoBrainer.run { |r| 
+        r.db(@member_id).table(@mdl).get(data_id).delete()
+      }
+
+      respond_with(@result, :status => 200, :location => nil)
     end
 
     private
 
       def get_required_data
+
+        crud_params
+        @mdl = nil
+        @jdata = nil
         @member_id = request.headers['MEMBERID'].to_s
         @app_id = request.headers['APPID'].to_s
 
@@ -83,22 +90,38 @@ module Core
         end
 
         @member = Member.find(@member_id)
-
         if @member == nil 
           respond_with :status => 401
           return
         end
 
         Thread.current[:member] = @member_id
-
         @app = App.find(@app_id)
-
         if @app == nil 
           respond_with :status => 402
           return
         end
 
+        @mdl = params[:crud][:entity].to_s
+        @jdata = params[:crud][:data]
+        
+        #params[:crud].each do |key, value|
+        #  #@mdl = key
+        #  @jdata = value
+        #  break
+        #end
+
+        if @mdl == nil
+          respond_with :status => 403
+          return
+        end
+
       end
+
+      def crud_params
+        params.require(:crud).permit(:entity)
+      end
+
 
   end
 end
