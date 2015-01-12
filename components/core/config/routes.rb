@@ -15,10 +15,7 @@ Core::Engine.routes.draw do
 
   get "crud_index", to: "crud#index" 
   post "crud_index", to: "crud#create" 
-  #get "crud_new", to: "crud#new"
-  #get "crud_edit", to: "crud#edit"
   get "crud_at", to: "crud#show"
-  #patch "crud_at", to: "crud#update"
   put "crud_at", to: "crud#update"  
   delete "crud_at", to: "crud#destroy"
   

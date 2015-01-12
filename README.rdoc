@@ -1,6 +1,6 @@
 == README
 
-#CURL requests
+###CURL requests
 
 SELECT ALL
 curl -H "Accept: application/json" -H "Content-Type: application/json" -H "MEMBERID: 1Raq4LFZAKqEVf" -H "APPID: 1RbLQeaPv0ArmS" -X GET -d "{\"entity\" :\"game\"}" http://192.168.100.151:3000/main/crud_index
@@ -17,11 +17,11 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" -H "MEMBE
 DELETE
 curl -H "Accept: application/json" -H "Content-Type: application/json" -H "MEMBERID: 1Raq4LFZAKqEVf" -H "APPID: 1RbLQeaPv0ArmS" -X DELETE -d "{\"entity\" :\"game\",\"data\" :{\"id\":\"273adb7d-1302-4963-b141-e3339db37731\"}}" http://192.168.100.151:3000/main/crud_at
 
-#TODO
+###TODO
 
-Error handler
-Response handler
-Clean UI
-CLIENT API
+* Error handler
+* Response handler
+* Clean UI
+* CLIENT API
 
 

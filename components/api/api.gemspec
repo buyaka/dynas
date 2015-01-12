@@ -7,11 +7,11 @@ require "api/version"
 Gem::Specification.new do |s|
   s.name        = "api"
   s.version     = Api::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of Api."
-  s.description = "TODO: Description of Api."
+  s.authors     = ["Buyant-Orgil"]
+  s.email       = ["enkhbaatar_buyant-orgil@unimedia.co.jp"]
+  s.homepage    = "http://www.unimedia.mn"
+  s.summary     = "Marketing"
+  s.description = "Marketing"
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]

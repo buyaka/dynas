@@ -5,7 +5,16 @@ Rails.application.routes.draw do
   mount Console::Engine => "/console"
   #mount Backend::Engine => "/admin"
   mount Frontend::Engine => "/"
-  #mount Api::Engine => "/api"
+	mount Api::Engine => '/', :constraints => { :subdomain => 'api' } 
+  
   
   #DynamicRouter.load
+
+  #namespace :api, :path => "", :constraints => {:subdomain => "api"} do
+	#  namespace :v1 do
+	#    mount Api::Engine => "/"
+	#  end
+	#end
+
+
 end
