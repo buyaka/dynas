@@ -190,7 +190,6 @@ PLATFORMS
 DEPENDENCIES
   aescrypt
   api!
-  bcrypt
   capybara
   core!
   factory_girl_rails

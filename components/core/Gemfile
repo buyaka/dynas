@@ -8,3 +8,4 @@ gem 'nobrainer'
 gem 'devise-nobrainer'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
+gem "bcrypt"

@@ -3,7 +3,17 @@
 
 ###CURL requests
 
+SIGNUP
+curl -H "Accept: application/json" -H "Content-Type: application/json" -H "MEMBERID: 1Raq4LFZAKqEVf" -H "APPID: 1RbLQeaPv0ArmS" -X POST -d "{\"full_name\" :\"Buyantorgil Enkhbaatar\", \"email\" :\"buyakao@yahoo.com\", \"password\" :\"password\"}" http://api.dynas.mn/v1/signup
+
 SIGNIN
 curl -H "Accept: application/json" -H "Content-Type: application/json" -H "MEMBERID: 1Raq4LFZAKqEVf" -H "APPID: 1RbLQeaPv0ArmS" -X POST -d "{\"email\" :\"buyakao@yahoo.com\", \"password\" :\"password\"}" http://api.dynas.mn/v1/signin
 
+GETTOKEN
+curl -H "Accept: application/json" -H "Content-Type: application/json" -H "MEMBERID: 1Raq4LFZAKqEVf" -H "APPID: 1RbLQeaPv0ArmS" -X GET -d "{\"email\" :\"buyakao@yahoo.com\"}" http://api.dynas.mn/v1/get_token
 
+CLEARTOKEN
+curl -H "Accept: application/json" -H "Content-Type: application/json" -H "MEMBERID: 1Raq4LFZAKqEVf" -H "APPID: 1RbLQeaPv0ArmS" -H "Authorization:Token token=\"YOURTOKEN\"" -X GET http://api.dynas.mn/v1/clear_token
+
+RESET PASSWORD
+curl -H "Accept: application/json" -H "Content-Type: application/json" -H "MEMBERID: 1Raq4LFZAKqEVf" -H "APPID: 1RbLQeaPv0ArmS" -H "Authorization:Token token=\"YOURTOKEN\"" -X POST -d "{\"old_password\" :\"password\",\"new_password\" :\"personal\"}" http://api.dynas.mn/v1/reset_password

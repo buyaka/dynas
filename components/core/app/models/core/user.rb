@@ -8,11 +8,15 @@ module Core
 
 	  field :app_id, :type => String
 	  field :email, :type => String
-	  field :name, :type => String
+	  field :first_name, :type => String
+	  field :last_name, :type => String
 	  field :password, :type => String
 	  field :password_salt, :type => String
 	  field :password_hash, :type => String
-		field :verification_code, :type => String
+	  field :verification_code, :type => String
+		field :api_authtoken, :type => String
+		field :authtoken_expiry, :type => Time
+	  	  
 
 		attr_accessor :password
 	  before_save :encrypt_password
@@ -32,15 +36,15 @@ module Core
 	  end
 	  
 	  def self.authenticate(login_name, password)
-	    user = self.where("email =?", login_name).first
+	    user = self.where(:email => login_name).first
 	                   
 	    if user 
-	      begin
-	        password = AESCrypt.decrypt(password, ENV["API_AUTH_PASSWORD"])      
-	      rescue Exception => e
-	        password = nil
-	        puts "error - #{e.message}"
-	      end
+	      #begin
+	      #  password = AESCrypt.decrypt(password, ENV["API_AUTH_PASSWORD"])      
+	      #rescue Exception => e
+	      #  password = nil
+	      #  puts "error - #{e.message}"
+	      #send
 	              
 	      if user.password_hash == BCrypt::Engine.hash_secret(password, user.password_salt)
 	        user

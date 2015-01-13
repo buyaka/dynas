@@ -1,7 +1,8 @@
 module Api
   module V1
     class AuthController < ApplicationController  
-      http_basic_authenticate_with name:ENV["API_AUTH_NAME"], password:ENV["API_AUTH_PASSWORD"], :only => [:signup, :signin, :get_token]  
+      #http_basic_authenticate_with name:ENV["API_AUTH_NAME"], password:ENV["API_AUTH_PASSWORD"], :only => [:signup, :signin, :get_token]  
+      before_filter :get_required_data
       before_filter :check_for_valid_authtoken, :except => [:signup, :signin, :get_token]
       
       def signup
@@ -13,16 +14,16 @@ module Api
             params[:user][:last_name] = params[:full_name].split(" ").last
             params[:user][:email] = params[:email]
             
-            begin 
-              decrypted_pass = AESCrypt.decrypt(params[:password], ENV["API_AUTH_PASSWORD"])
-            rescue Exception => e
-              decrypted_pass = nil          
-            end
+            #begin 
+            #  decrypted_pass = AESCrypt.decrypt(params[:password], ENV["API_AUTH_PASSWORD"])
+            #rescue Exception => e
+            #  decrypted_pass = nil          
+            #end
                     
-            params[:user][:password] = decrypted_pass  
+            params[:user][:password] = params[:password] 
             params[:user][:verification_code] = rand_string(20)
             
-            user = Core::User.new(user_params)
+            user = Core::User.new(params[:user])
 
             if user.save
               render :json => user.to_json, :status => 200
@@ -85,12 +86,13 @@ module Api
                   auth_token = rand_string(20)
                   auth_expiry = Time.now + (24*60*60)
                 
-                  begin
-                    new_password = AESCrypt.decrypt(params[:new_password], ENV["API_AUTH_PASSWORD"])  
-                  rescue Exception => e
-                    new_password = nil
-                    puts "error - #{e.message}"
-                  end
+                  new_password = params[:new_password]
+                  #begin
+                  #  new_password = AESCrypt.decrypt(params[:new_password], ENV["API_AUTH_PASSWORD"])  
+                  #rescue Exception => e
+                  #  new_password = nil
+                  #  puts "error - #{e.message}"
+                  #end
                   
                   new_password_salt = BCrypt::Engine.generate_salt
                   new_password_digest = BCrypt::Engine.hash_secret(new_password, new_password_salt)
@@ -252,7 +254,9 @@ module Api
       private 
       
       def check_for_valid_authtoken
-        authenticate_or_request_with_http_token do |token, options|     
+        authenticate_or_request_with_http_token do |token, options|  
+
+          puts token   
           @user = Core::User.where(:api_authtoken => token).first      
         end
       end
@@ -265,13 +269,14 @@ module Api
       end
       
       def user_params
-        params.require(:user).permit(:first_name, :last_name, :email, :password, :password_hash, :password_salt, :verification_code, 
-        :email_verification, :api_authtoken, :authtoken_expiry)
+        params.require(:auth).permit(:email, :password)
+        #, :password_hash, :password_salt, :verification_code, 
+        #:email_verification, :api_authtoken, :authtoken_expiry)
       end
 
       def get_required_data
 
-          user_params
+          #user_params
           @mdl = nil
           @jdata = nil
           @member_id = request.headers['MEMBERID'].to_s
@@ -292,20 +297,6 @@ module Api
           @app = Core::App.find(@app_id)
           if @app == nil 
             respond_with :status => 402
-            return
-          end
-
-          @mdl = params[:crud][:entity].to_s
-          @jdata = params[:crud][:data]
-          
-          #params[:crud].each do |key, value|
-          #  #@mdl = key
-          #  @jdata = value
-          #  break
-          #end
-
-          if @mdl == nil
-            respond_with :status => 403
             return
           end
 
