@@ -5,5 +5,14 @@ Api::Engine.routes.draw do
   put "crud_at", to: "crud#update"  
   delete "crud_at", to: "crud#destroy"
 
-  root to: "crud#index" 
+  root to: "crud#index"
+
+  namespace :v1 do
+	  post 'signup', to: 'auth#signup'
+	  post 'signin', to: 'auth#signin'
+	  post 'reset_password', to: 'auth#reset_password'
+	  get 'get_token', to: 'auth#get_token'  
+	  get 'clear_token', to: 'auth#clear_token'	
+  end
+	
 end

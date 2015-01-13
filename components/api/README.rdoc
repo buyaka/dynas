@@ -1,3 +1,9 @@
 = Api
 
-This project rocks and uses MIT-LICENSE.
+
+###CURL requests
+
+SIGNIN
+curl -H "Accept: application/json" -H "Content-Type: application/json" -H "MEMBERID: 1Raq4LFZAKqEVf" -H "APPID: 1RbLQeaPv0ArmS" -X POST -d "{\"email\" :\"buyakao@yahoo.com\", \"password\" :\"password\"}" http://api.dynas.mn/v1/signin
+
+

@@ -44,6 +44,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    aescrypt (1.0.0)
     arel (5.0.1.20140414130214)
     bcrypt (3.1.9)
     bcrypt (3.1.9-x86-mingw32)
@@ -187,7 +188,9 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  aescrypt
   api!
+  bcrypt
   capybara
   core!
   factory_girl_rails
