@@ -23,5 +23,6 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" -H "MEMBE
 * Response handler
 * Clean UI
 * CLIENT API
+* HTTP Request Rate Limiter for Rack Applications
 
 

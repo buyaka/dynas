@@ -5,3 +5,7 @@ gemspec
 gem "core", path: "../core"
 gem "bcrypt"
 gem "aescrypt"
+
+
+#HTTP Request Rate Limiter for Rack Applications
+#require 'rack/throttle'
