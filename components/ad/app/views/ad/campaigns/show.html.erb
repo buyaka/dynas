@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @campaign.name %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @campaign.note %>
+</p>
+
+<p>
+  <strong>Advertiser:</strong>
+  <%= @advertiser.name %>
+</p>
+
+<%= link_to 'Edit', edit_advertiser_campaign_path(@advertiser, @campaign) %> |
+<%= link_to 'Back', advertiser_campaigns_path(@advertiser) %> |
+<%= link_to 'Ads', advertiser_campaign_advertises_path(@advertiser, @campaign) %>
+

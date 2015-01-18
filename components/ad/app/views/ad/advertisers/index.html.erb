@@ -1,0 +1,29 @@
+<h1>Listing advertisers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Note</th>
+      <th>Level</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @advertisers.each do |advertiser| %>
+      <tr>
+        <td><%= advertiser.name %></td>
+        <td><%= advertiser.note %></td>
+        <td><%= advertiser.level %></td>
+        <td><%= link_to 'Show', advertiser %></td>
+        <td><%= link_to 'Edit', edit_advertiser_path(advertiser) %></td>
+        <td><%= link_to 'Destroy', advertiser, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Advertiser', new_advertiser_path %>

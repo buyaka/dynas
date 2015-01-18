@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @ad_type.name %>
+</p>
+
+<p>
+  <strong>Height:</strong>
+  <%= @ad_type.height %>
+</p>
+
+<p>
+  <strong>Width:</strong>
+  <%= @ad_type.width %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @ad_type.note %>
+</p>
+
+<%= link_to 'Edit', edit_ad_type_path(@ad_type) %> |
+<%= link_to 'Back', ad_types_path %>

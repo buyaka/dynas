@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @ad.name %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @ad.note %>
+</p>
+
+<p>
+  <strong>Adtype:</strong>
+  <%= Ad::AdType.find(@ad.ad_type_id).name %>
+</p>
+
+<p>
+  <strong>Campaign:</strong>
+  <%= @campaign.name %>
+</p>
+
+<p>
+  <strong>Redirect URL</strong>
+  <%= @ad.redirect_url %>
+</p>
+
+<p>
+  <strong>Html Code:</strong>
+  <%= @ad.html_code %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @ad.image %>
+</p>
+
+<p>
+  <strong>Alt Text:</strong>
+  <%= @ad.alt_text %>
+</p>
+
+<%= link_to 'Show', edit_advertiser_campaign_advertise_path(@advertiser, @campaign, @ad)  %> | 
+<%= link_to 'Back', advertiser_campaign_advertises_path(@advertiser, @campaign)  %>

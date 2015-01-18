@@ -6,12 +6,6 @@ Rails.application.routes.draw do
   #mount Backend::Engine => "/admin", :as => 'admin'
   mount Frontend::Engine => "/", :as => 'frontend'
 	mount Api::Engine => '/', :constraints => { :subdomain => 'api' }, :as => 'api'
-  
-  #mount Ad::Engine => "/services/ad", :as => 'ad'
-  #mount Push::Engine => "/services/push", :as => 'push'
-  #mount Passbook::Engine => "/services/pass", :as => 'pass'
-  #mount IBeacon::Engine => "/services/ibeacon", :as => 'ibeacon'
-  #mount BackgrounWorker::Engine => "/services/bworker", :as => 'bworker'
 
   namespace :services do
     mount Ad::Engine => "/ad", :as => 'ad'

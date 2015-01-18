@@ -1,0 +1,31 @@
+<h1>Listing ad_types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Height</th>
+      <th>Width</th>
+      <th>Note</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ad_types.each do |ad_type| %>
+      <tr>
+        <td><%= ad_type.name %></td>
+        <td><%= ad_type.height %></td>
+        <td><%= ad_type.width %></td>
+        <td><%= ad_type.note %></td>
+        <td><%= link_to 'Show', ad_type %></td>
+        <td><%= link_to 'Edit', edit_ad_type_path(ad_type) %></td>
+        <td><%= link_to 'Destroy', ad_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ad type', new_ad_type_path %>

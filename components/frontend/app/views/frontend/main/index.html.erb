@@ -1,4 +1,4 @@
-Welcome to DynAs BaAS maker SaAS
+Welcome to DynAs system
 
 <% if member_signed_in? %>
   <%= link_to('Edit registration', core.edit_member_registration_path) %> |  
@@ -13,4 +13,7 @@ Welcome to DynAs BaAS maker SaAS
 
 
 <%= link_to("API index", core.crud_index_path) %>
+
+<%= link_to("Advertiser", services_ad.advertisers_path) %>
+<%= link_to("Ad Types", services_ad.ad_types_path) %>
 
