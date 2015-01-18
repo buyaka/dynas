@@ -19,10 +19,11 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" -H "MEMBE
 
 ###TODO
 
-* Error handler
 * Response handler
 * Clean UI
 * CLIENT API
 * HTTP Request Rate Limiter for Rack Applications
+* AWS, DropBox connection integrate
+* omniauth integrate
 
 
