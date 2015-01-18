@@ -26,7 +26,7 @@ module Api
             user = Core::User.new(params[:user])
 
             if user.save
-              render :json => user.to_json, :status => 200
+              render :json => user.to_json, :status => 200, :message => "OK"
             else
               error_str = ""
 
@@ -267,16 +267,9 @@ module Api
 
         return string
       end
-      
-      def user_params
-        params.require(:auth).permit(:email, :password)
-        #, :password_hash, :password_salt, :verification_code, 
-        #:email_verification, :api_authtoken, :authtoken_expiry)
-      end
 
       def get_required_data
 
-          #user_params
           @mdl = nil
           @jdata = nil
           @member_id = request.headers['MEMBERID'].to_s
