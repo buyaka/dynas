@@ -1,0 +1,31 @@
+<h1>Listing beacons</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>UUID</th>
+      <th>Major</th>
+      <th>Minor</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @beacons.each do |beacon| %>
+      <tr>
+        <td><%= beacon.id %></td>
+        <td><%= link_to beacon.uuid, beacon %></td>
+        <td><%= beacon.major %></td>
+        <td><%= beacon.minor %></td>
+        <td><%= link_to 'Show', beacon %></td>
+        <td><%= link_to 'Edit', edit_beacon_path(beacon) %></td>
+        <td><%= link_to 'Destroy', beacon, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Add Beacon', new_beacon_path %>
