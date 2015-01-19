@@ -16,8 +16,8 @@ gem 'nobrainer', path: "components/nobrainer"
 
 #components
 gem "core", path: "components/core"
-gem "service", path: "components/service"
 gem "console", path: "components/console"
 gem "frontend", path: "components/frontend"
 gem "api", path: "components/api"
 gem "ad", path: "components/ad"
+gem "ibeacon", path: "components/ibeacon"

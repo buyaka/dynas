@@ -34,6 +34,12 @@ PATH
       rails (~> 4.1.8)
 
 PATH
+  remote: components/ibeacon
+  specs:
+    ibeacon (0.0.1)
+      rails (~> 4.1.8)
+
+PATH
   remote: components/nobrainer
   specs:
     nobrainer (0.20.0)
@@ -42,12 +48,6 @@ PATH
       middleware (~> 0.1.0)
       rethinkdb (>= 1.15.0.0)
       symbol_decoration (~> 1.1)
-
-PATH
-  remote: components/service
-  specs:
-    service (0.0.1)
-      rails (~> 4.1.8)
 
 GEM
   remote: https://rubygems.org/
@@ -216,13 +216,13 @@ DEPENDENCIES
   console!
   core!
   frontend!
+  ibeacon!
   jbuilder (~> 2.0)
   jquery-rails
   nobrainer!
   rails (= 4.1.8)
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
-  service!
   turbolinks
   tzinfo-data
   uglifier (>= 1.3.0)
