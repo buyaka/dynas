@@ -1,10 +1,10 @@
 module Api
-  class ApplicationController < ActionController::Base
+	class ApplicationController < ActionController::Base
 		respond_to :json
-	  before_filter :set_format
+		before_filter :set_format
 
-	  def set_format
-	    request.format = :json
-	  end
-  end
+		def set_format
+			request.format = :json
+		end
+	end
 end

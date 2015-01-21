@@ -28,6 +28,12 @@ PATH
       rails (~> 4.1.8)
 
 PATH
+  remote: components/ecoupon
+  specs:
+    ecoupon (0.0.1)
+      rails (~> 4.1.8)
+
+PATH
   remote: components/frontend
   specs:
     frontend (0.0.1)
@@ -215,6 +221,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   console!
   core!
+  ecoupon!
   frontend!
   ibeacon!
   jbuilder (~> 2.0)
