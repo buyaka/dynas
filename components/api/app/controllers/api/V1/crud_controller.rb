@@ -10,7 +10,7 @@ module Api
         @datas = NoBrainer.run { |r| 
           r.db(@member_id).table(@mdl)
         }
-
+        
         respond_with(@datas, :status => 200)
       end
       
@@ -90,28 +90,22 @@ module Api
             return
           end
 
-          @member = Member.find(@member_id)
+          @member = Core::Member.find(@member_id)
           if @member == nil 
             respond_with :status => 401
             return
           end
 
           Thread.current[:member] = @member_id
-          @app = App.find(@app_id)
+          @app = Core::App.find(@app_id)
           if @app == nil 
             respond_with :status => 402
             return
           end
 
-          @mdl = params[:crud][:entity].to_s
-          @jdata = params[:crud][:data]
+          @mdl = params[:entity].to_s
+          @jdata = params[:data]
           
-          #params[:crud].each do |key, value|
-          #  #@mdl = key
-          #  @jdata = value
-          #  break
-          #end
-
           if @mdl == nil
             respond_with :status => 403
             return
@@ -120,7 +114,7 @@ module Api
         end
 
         def crud_params
-          params.require(:crud).permit(:entity)
+          params.require(:entity)
         end
 
     end
