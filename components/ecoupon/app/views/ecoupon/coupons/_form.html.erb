@@ -25,7 +25,7 @@
   </div>
   <div class="field">
     <%= f.label :beacon_id %><br>
-    <%= f.text_field :beacon_id %>
+    <%= f.collection_select(:beacon_id, Ibeacon::Beacon.all, :id, :uuid, {include_blank: 'Select your Beacon'}) %>
   </div>
   <div class="actions">
     <%= f.submit %>

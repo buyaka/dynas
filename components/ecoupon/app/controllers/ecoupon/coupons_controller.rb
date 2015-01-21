@@ -11,6 +11,9 @@ module Ecoupon
     end
 
     def show
+      if @coupon.beacon_id != nil
+        @beacon = Ibeacon::Beacon.find(@coupon.beacon_id)
+      end
       respond_with(@coupon)
     end
 

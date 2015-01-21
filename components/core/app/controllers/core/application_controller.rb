@@ -6,5 +6,11 @@ module Core
 	def set_db
 	  Thread.current[:member] = current_member.id
 	end
+
+	#Devise after sign in
+	#Warden::Manager.after_authentication do |user,auth,opts|
+	#	Thread.current[:member] = current_member.id
+	#end
+
   end
 end

@@ -17,11 +17,15 @@
   </div>
   <div class="field">
     <%= f.label :major %><br>
-    <%= f.number_field :major, :value => 0 %>
+    <%= f.number_field :major %>
   </div>
   <div class="field">
     <%= f.label :minor %><br>
-    <%= f.number_field :minor, :value => 0 %>
+    <%= f.number_field :minor %>
+  </div>
+  <div class="field">
+    <%= f.label :note %><br>
+    <%= f.text_area :note %>
   </div>
   <div class="actions">
     <%= f.submit %>
