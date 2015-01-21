@@ -16,5 +16,10 @@ module Frontend
 
     def about
     end
+
+    def documentation
+        
+    end
+    
   end
 end

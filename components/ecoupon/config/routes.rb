@@ -3,4 +3,6 @@ Ecoupon::Engine.routes.draw do
 	resources :coupons do
 		get "banner", :on => :member
 	end
+
+	get "coupons_with_beacon", to: "coupons#coupons_with_beacon"
 end

@@ -25,6 +25,13 @@ module Ecoupon
     def edit
     end
 
+    def coupons_with_beacon
+      #require to customzie if you use the minor or major
+      @beacon = Ibeacon::Beacon.find_by_uuid(params[:beacon_uuid]) 
+      @coupons = Coupon.where("beacon_id = ?", @beacon.id)
+      respond_with(@coupons)
+    end
+
     def create
 
       banner = coupon_params[:banner]

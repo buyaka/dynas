@@ -1,0 +1,25 @@
+<style type="text/css">
+  div.float {
+    float: left;
+  }
+  
+  div.float p {
+    text-align: center;
+  }
+</style>
+
+<h1>Listing coupons</h1>
+
+<% @coupons.each do |coupon| %>
+<div class="float">
+  <%= image_tag banner_coupon_path(coupon), :size => "300x200" %><br />
+  <p><%= coupon.name %></p><br />
+  <p><%= link_to 'Edit', edit_coupon_path(coupon) %></p><br />
+  <p><%= link_to 'Destroy', coupon, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+</div>
+<% end %>
+
+
+<br/>
+
+<%= link_to 'New Coupon', new_coupon_path %>

@@ -37,6 +37,7 @@ PATH
   remote: components/frontend
   specs:
     frontend (0.0.1)
+      jquery-rails
       rails (~> 4.1.8)
 
 PATH
