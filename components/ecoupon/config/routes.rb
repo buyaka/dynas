@@ -5,4 +5,5 @@ Ecoupon::Engine.routes.draw do
 	end
 
 	get "coupons_with_beacon", to: "coupons#coupons_with_beacon"
+	#get "coupons_with_beacon/:beacon_uuid", to: "coupons#coupons_with_beacon"
 end

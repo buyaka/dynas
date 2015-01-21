@@ -9,7 +9,6 @@ module Ecoupon
 		field :banner_file_name, :type => String
 		field :banner_content_type, :type => String
 		field :beacon_id, :type => String
-
 		field :url, :type => String
 
 	end
