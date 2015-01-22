@@ -12,7 +12,7 @@
 
 <p>
   <strong>Beacon:</strong>
-  <%= @beacon.uuid if @coupon.beacon_id != nil %>
+  <%= @beacon.uuid if @coupon.beacon_id != nil and !@coupon.beacon_id.blank? %>
 </p>
 
 <%= link_to 'Edit', edit_coupon_path(@coupon) %> |

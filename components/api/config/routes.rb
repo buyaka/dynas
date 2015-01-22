@@ -13,7 +13,9 @@ Api::Engine.routes.draw do
 	  get 'get_token', to: 'auth#get_token'  
 	  get 'clear_token', to: 'auth#clear_token'	
     
-    get 'coupons', to: 'coupons#index'
+    get 'coupons_with_beacon', to: 'coupons#index'
+    get 'coupons', to: 'coupons#list'
+    get "coupon_image/:coupon_id", to: 'coupons#banner'
   end
 	
 end
