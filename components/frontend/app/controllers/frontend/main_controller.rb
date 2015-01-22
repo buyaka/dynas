@@ -2,6 +2,7 @@ require_dependency "frontend/application_controller"
 
 module Frontend
   class MainController < ApplicationController
+
     def index
     end
 

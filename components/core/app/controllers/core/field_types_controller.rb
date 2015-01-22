@@ -1,5 +1,7 @@
 module Core
 class FieldTypesController < ApplicationController
+  layout "frontend/main"
+
   before_action :set_field_type, only: [:show, :edit, :update, :destroy]
 
   # GET /field_types

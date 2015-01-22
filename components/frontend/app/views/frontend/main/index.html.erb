@@ -1,21 +1,2 @@
-Welcome to DynAs system
-
-<% if member_signed_in? %>
-  <%= link_to('Edit registration', core.edit_member_registration_path) %> |  
-  <%= link_to('Sign out', core.destroy_member_session_path, :method => :get) %> 
-<% else %>
-  <%= link_to('Register', core.new_member_registration_path) %> | 
-  <%= link_to("Sign in", core.new_member_session_path) %>
-<% end %>
-
-<%= link_to("Fieldtypes", core.field_types_path) %>
-<%= link_to("Applications", core.apps_path) %>
-
-
-<%= link_to("API index", core.crud_index_path) %>
-
-<%= link_to("Advertiser", services_ad.advertisers_path) %> | 
-<%= link_to("Ad Types", services_ad.ad_types_path) %> | 
-<%= link_to("iBeacons", services_ibeacon.beacons_path) %> | 
-<%= link_to("Coupons", services_ecoupon.coupons_path) %>
+<h1 class="page-header">Welcome to DynAs system</h1>
 
