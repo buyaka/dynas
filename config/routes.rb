@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   mount Core::Engine => "/main", :as => 'core'
   #mount Console::Engine => "/console", :as => 'console'
   #mount Backend::Engine => "/admin", :as => 'admin'
-  mount Api::Engine => '/', :constraints => { :subdomain => 'api' }, :as => 'api'
+  #mount Api::Engine => '/', :constraints => { :subdomain => 'api' }, :as => 'api'
+  # use if check from mobile device
+  mount Api::Engine => '/api', :as => 'api'
   mount Frontend::Engine => "/", :as => 'frontend'
 
   namespace :services do

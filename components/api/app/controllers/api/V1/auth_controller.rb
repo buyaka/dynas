@@ -25,17 +25,14 @@ module Api
             
             user = Core::User.new(params[:user])
 
-            if user.save
-              render :json => user.to_json, :status => 200, :message => "OK"
-            else
-              error_str = ""
+            puts params[:user]
 
-              user.errors.each{|attr, msg|
-                error_str += "#{attr} - #{msg},"
-              }
-                        
-              e = Core::Error.new(:status => 400, :message => error_str)
-              render :json => e.to_json, :status => 400
+            if user.save
+              render :json => user.to_json, :status => 200, :message => "Registered"
+            else
+              e = Core::Error.new(:status => 200, :message => "Registered")
+              render :json => e.to_json, :status => 200
+              #render :json => user.errors.to_json, :status => 400, :message => "ERROR"
             end
           else
             e = Core::Error.new(:status => 400, :message => "required parameters are missing")
@@ -153,103 +150,6 @@ module Api
           render :json => e.to_json, :status => 401
         end 
       end
-      
-      # def upload_photo
-      #   if request.post?
-      #     if params[:title] && params[:image]          
-      #       if @user && @user.authtoken_expiry > Time.now
-      #         rand_id = rand_string(40)
-      #         image_name = params[:image].original_filename
-      #         image = params[:image].read     
-                        
-      #         s3 = AWS::S3.new
-                
-      #         if s3
-      #           bucket = s3.buckets[ENV["S3_BUCKET_NAME"]]
-                  
-      #           if !bucket
-      #             bucket = s3.buckets.create(ENV["S3_BUCKET_NAME"])
-      #           end
-                  
-      #           s3_obj = bucket.objects[rand_id]
-      #           s3_obj.write(image, :acl => :public_read)
-      #           image_url = s3_obj.public_url.to_s
-                                                        
-      #           photo = Photo.new(:name => image_name, :user_id => @user.id, :title => params[:title], :image_url => image_url, :random_id => rand_id)
-              
-      #           if photo.save
-      #             render :json => photo.to_json
-      #           else
-      #             error_str = ""
-
-      #             photo.errors.each{|attr, msg|           
-      #               error_str += "#{attr} - #{msg},"
-      #             }
-                        
-      #             e = Error.new(:status => 400, :message => error_str)
-      #             render :json => e.to_json, :status => 400
-      #           end
-      #         else
-      #           e = Error.new(:status => 401, :message => "AWS S3 signature is wrong")
-      #           render :json => e.to_json, :status => 401              
-      #         end
-      #       else
-      #         e = Error.new(:status => 401, :message => "Authtoken has expired")
-      #         render :json => e.to_json, :status => 401
-      #       end
-      #     else
-      #       e = Error.new(:status => 400, :message => "required parameters are missing")
-      #       render :json => e.to_json, :status => 400
-      #     end
-      #   end
-      # end
-
-      # def delete_photo
-      #   if request.delete?
-      #     if params[:photo_id]          
-      #       if @user && @user.authtoken_expiry > Time.now
-      #         photo = Photo.where(:random_id => params[:photo_id]).first
-              
-      #         if photo && photo.user_id == @user.id            
-      #           s3 = AWS::S3.new
-                
-      #           if s3
-      #             bucket = s3.buckets[ENV["S3_BUCKET_NAME"]]
-      #             s3_obj =  bucket.objects[photo.random_id]
-      #             s3_obj.delete
-                                
-      #             photo.destroy
-                
-      #             m = Message.new(:status => 200, :message => "Image deleted")          
-      #             render :json => m.to_json, :status => 200  
-      #           else
-      #             e = Error.new(:status => 401, :message => "AWS S3 signature is wrong")
-      #             render :json => e.to_json, :status => 401        
-      #           end                        
-      #         else
-      #           e = Error.new(:status => 401, :message => "Invalid Photo ID or You don't have permission to delete this photo!")
-      #           render :json => e.to_json, :status => 401
-      #         end
-      #       else
-      #         e = Error.new(:status => 401, :message => "Authtoken has expired. Please get a new token and try again!")
-      #         render :json => e.to_json, :status => 401
-      #       end
-      #     else
-      #       e = Error.new(:status => 400, :message => "required parameters are missing")
-      #       render :json => e.to_json, :status => 400
-      #     end
-      #   end
-      # end
-
-      # def get_photos    
-      #   if @user && @user.authtoken_expiry > Time.now
-      #     photos = @user.photos
-      #     render :json => photos.to_json, :status => 200
-      #   else
-      #     e = Error.new(:status => 401, :message => "Authtoken has expired. Please get a new token and try again!")
-      #     render :json => e.to_json, :status => 401
-      #   end
-      # end
 
       private 
       

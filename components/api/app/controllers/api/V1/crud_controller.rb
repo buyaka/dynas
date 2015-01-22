@@ -27,20 +27,32 @@ module Api
           r.db(@member_id).table(@mdl).get(data_id)
         }
 
-        respond_with(@result, :status => 200, :location => nil)
+        
+        if @result["errors"] == 0
+          respond_with(@result, :status => 200, :location => nil)
+        else
+          retVal = {"message"=> "fail"}
+          respond_with(retVal, :status => 400, :location => nil)
+        end
       end
 
       def create
         if @jdata == nil 
-            respond_with :status => 405
+            respond_with("data parameter required",:status => 405, :location => nil)
             return
         end
 
         @result = NoBrainer.run { |r| 
           r.db(@member_id).table(@mdl).insert(@jdata)
         }
-
-        respond_with(@result, :status => 200, :location => nil)
+        
+        if @result["errors"] == 0
+          retVal = {"message"=> "success"}
+          respond_with(retVal, :status => 200, :location => nil)
+        else
+          retVal = {"message"=> "fail"}
+          respond_with(retVal, :status => 400, :location => nil)
+        end
       end
 
       def update
@@ -55,8 +67,14 @@ module Api
         @result = NoBrainer.run { |r| 
           r.db(@member_id).table(@mdl).get(data_id).update(@jdata)
         }
-
-        respond_with(@result, :status => 200, :location => nil)
+        
+        if @result["errors"] == 0
+          retVal = {"message"=> "success"}
+          respond_with(retVal, :status => 200, :location => nil)
+        else
+          retVal = {"message"=> "fail"}
+          respond_with(retVal, :status => 400, :location => nil)
+        end
       end
 
       def destroy
@@ -64,15 +82,23 @@ module Api
         data_id = data_hash['id'].to_s
 
         if data_id == nil
-          respond_with("{error: \"ID not found!\"}", :status => 200, :location => nil)
+          retVal = {"message"=> "ID not found!"}
+          respond_with(retVal, :status => 400, :location => nil)
           return
         end
 
         @result = NoBrainer.run { |r| 
           r.db(@member_id).table(@mdl).get(data_id).delete()
         }
-
-        respond_with(@result, :status => 200, :location => nil)
+        
+        if @result["errors"] == 0
+          retVal = {"message"=> "success"}
+          respond_with(retVal, :status => 200, :location => nil)
+        else
+          retVal = {"message"=> "fail"}
+          respond_with(retVal, :status => 400, :location => nil)
+        end
+        
       end
 
       private
@@ -105,6 +131,9 @@ module Api
 
           @mdl = params[:entity].to_s
           @jdata = params[:data]
+          
+        
+          puts @jdata.to_json
           
           if @mdl == nil
             respond_with :status => 403

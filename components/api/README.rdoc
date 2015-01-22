@@ -4,7 +4,7 @@
 ###CURL requests
 
 SIGNUP
-curl -H "Accept: application/json" -H "Content-Type: application/json" -H "MEMBERID: 1Raq4LFZAKqEVf" -H "APPID: 1RbLQeaPv0ArmS" -X POST -d "{\"full_name\" :\"Buyantorgil Enkhbaatar\", \"email\" :\"buyakao@yahoo.com\", \"password\" :\"password\"}" http://api.dynas.mn/v1/signup
+curl -H "Accept: application/json" -H "Content-Type: application/json" -H "MEMBERID: 1Rfx9V6fEuN9gh" -H "APPID: 1VCnzIhA4cjNAi" -X POST -d "{\"full_name\" :\"Buyantorgil Enkhbaatar\", \"email\" :\"buyakao12@yahoo.com\", \"password\" :\"password\"}" http://api.dynas.mn/v1/signup
 
 SIGNIN
 curl -H "Accept: application/json" -H "Content-Type: application/json" -H "MEMBERID: 1Raq4LFZAKqEVf" -H "APPID: 1RbLQeaPv0ArmS" -X POST -d "{\"email\" :\"buyakao@yahoo.com\", \"password\" :\"password\"}" http://api.dynas.mn/v1/signin
@@ -17,3 +17,6 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" -H "MEMBE
 
 RESET PASSWORD
 curl -H "Accept: application/json" -H "Content-Type: application/json" -H "MEMBERID: 1Raq4LFZAKqEVf" -H "APPID: 1RbLQeaPv0ArmS" -H "Authorization:Token token=\"YOURTOKEN\"" -X POST -d "{\"old_password\" :\"password\",\"new_password\" :\"personal\"}" http://api.dynas.mn/v1/reset_password
+
+GET COUPONS WITH BEACON UUID
+curl -H "Accept: application/json" -H "Content-Type: application/json" -H "MEMBERID: 1Rfx9V6fEuN9gh" -X GET -d "{\"beacon_uuid\" :\"1234567890\"}" http://api.dynas.mn/v1/coupons

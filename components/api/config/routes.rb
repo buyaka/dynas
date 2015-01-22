@@ -12,6 +12,8 @@ Api::Engine.routes.draw do
 	  post 'reset_password', to: 'auth#reset_password'
 	  get 'get_token', to: 'auth#get_token'  
 	  get 'clear_token', to: 'auth#clear_token'	
+    
+    get 'coupons', to: 'coupons#index'
   end
 	
 end
