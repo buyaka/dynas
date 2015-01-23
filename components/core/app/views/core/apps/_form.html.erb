@@ -1,29 +1,33 @@
 <%= form_for(@app) do |f| %>
-  <% if @app.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@app.errors.count, "error") %> prohibited this app from being saved:</h2>
+    <div class="form-group">
 
-      <ul>
-      <% @app.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <% if @app.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@app.errors.count, "error") %> prohibited this app from being saved:</h2>
+
+            <ul>
+              <% @app.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :note %><br>
-    <%= f.text_field :note %>
-  </div>
-  <div class="field">
-    <%= f.label :api_key %><br>
-    <%= f.text_field :api_key, :readonly => true %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+      <div class="form-group">
+        <%= f.label :name %><br>
+        <%= f.text_field :name %>
+      </div>
+      <div class="form-group">
+        <%= f.label :note %><br>
+        <%= f.text_field :note %>
+      </div>
+      <div class="form-group">
+        <%= f.label :api_key %><br>
+        <%= f.text_field :api_key, :readonly => true %>
+      </div>
+      <div class="actions">
+        <%= f.submit :class=>"btn btn-default" %>
+      </div>
+
+    </div>
 <% end %>

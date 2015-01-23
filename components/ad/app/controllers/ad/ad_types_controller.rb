@@ -2,6 +2,8 @@ module Ad
   class AdTypesController < ApplicationController
     before_action :set_ad_type, only: [:show, :edit, :update, :destroy]
 
+    layout "frontend/main"
+
     # GET /ad_types
     # GET /ad_types.json
     def index

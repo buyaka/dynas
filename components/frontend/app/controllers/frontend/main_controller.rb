@@ -19,7 +19,7 @@ module Frontend
     end
 
     def documentation
-        
+
     end
     
   end

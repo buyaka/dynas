@@ -2,6 +2,8 @@ module Ad
   class AdvertisersController < ApplicationController
     before_action :set_advertiser, only: [:show, :edit, :update, :destroy]
 
+    layout "frontend/main"
+
     # GET /advertisers
     # GET /advertisers.json
     def index
