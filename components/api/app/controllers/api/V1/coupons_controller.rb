@@ -6,8 +6,15 @@ module Api
       def index
         beacon = Ibeacon::Beacon.where(:uuid => params[:beacon_uuid]).first
         @coupons = Ecoupon::Coupon.where(:beacon_id => beacon.id)
-        puts @coupons.to_json
-        respond_with(@coupons, :status => 200)
+        
+        jsonData = ""
+        @coupons.each do |d|
+          jsonData += ',' if jsonData != ""
+          jsonData += d.to_json(:only => [ :id, :name, :banner_file_name, :beacon_id, :url, :banner_content_type])
+        end
+        jsonData = "[#{jsonData}]"
+        puts jsonData
+        respond_with(jsonData, :status => 200, :location => nil)
       end
       
       def list
