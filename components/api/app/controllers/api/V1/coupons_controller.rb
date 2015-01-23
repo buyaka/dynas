@@ -1,8 +1,7 @@
 module Api
   module V1
     class CouponsController < ApplicationController
-      before_filter :get_required_data
-      respond_to :json
+      before_filter :get_required_data , :except => [:banner]
 
       def index
         beacon = Ibeacon::Beacon.where(:uuid => params[:beacon_uuid]).first
@@ -12,8 +11,15 @@ module Api
       end
       
       def list
-        @coupons = Ecoupon::Coupon.all
-        respond_with(@coupons, :status => 200, :location => nil)
+        jsonData = ""
+        Ecoupon::Coupon.each do |d|
+          jsonData += ',' if jsonData != ""
+          jsonData += d.to_json(:only => [ :id, :name, :banner_file_name, :beacon_id, :url, :banner_content_type])
+        end
+        jsonData = "[#{jsonData}]"
+        
+        #@coupons = Ecoupon::Coupon.all
+        respond_with(jsonData, :status => 200)
       end
       
       def banner

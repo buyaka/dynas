@@ -9,6 +9,9 @@ module Core
 
     def show
     end
+    
+    def document
+    end
 
     def new
       @entity = Entity.new(:app_id => @app.id)

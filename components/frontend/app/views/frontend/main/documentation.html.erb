@@ -31,48 +31,49 @@
 
     <div id="wrapper">
 
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <a href="#">
-                        Start Bootstrap
-                    </a>
-                </li>
-                <li>
-                    <a href="#">Dashboard</a>
-                </li>
-                <li>
-                    <a href="#">Shortcuts</a>
-                </li>
-                <li>
-                    <a href="#">Overview</a>
-                </li>
-                <li>
-                    <a href="#">Events</a>
-                </li>
-                <li>
-                    <a href="#">About</a>
-                </li>
-                <li>
-                    <a href="#">Services</a>
-                </li>
-                <li>
-                    <a href="#">Contact</a>
-                </li>
-            </ul>
-        </div>
-        <!-- /#sidebar-wrapper -->
-
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1>Simple Sidebar</h1>
-                        <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
-                        <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
-                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+                        <h1>CURL requests</h1>
+                        <p>
+													
+</p><p>
+													<code>SELECT ALL</code><br/>
+													curl -H "Accept: application/json" -H "Content-Type: application/json" -H "MEMBERID: 1Raq4LFZAKqEVf" -H "APPID: 1RbLQeaPv0ArmS" -X GET -d "{\"entity\" :\"game\"}" http://192.168.100.151:3000/main/crud_index
+</p><p>
+													<code>SHOW</code><br/>
+													curl -H "Accept: application/json" -H "Content-Type: application/json" -H "MEMBERID: 1Raq4LFZAKqEVf" -H "APPID: 1RbLQeaPv0ArmS" -X GET -d "{\"entity\" :\"game\",\"data\" :{\"id\":\"273adb7d-1302-4963-b141-e3339db37731\"}}" http://192.168.100.151:3000/main/crud_at
+</p><p>
+													<code>INSERT</code><br/>
+													curl -H "Accept: application/json" -H "Content-Type: application/json" -H "MEMBERID: 1Raq4LFZAKqEVf" -H "APPID: 1RbLQeaPv0ArmS" -X POST -d "{\"entity\" :\"game\",\"data\" :{\"name\":\"1game\",\"desc\":\"1game\"}}" http://192.168.100.151:3000/main/crud_index
+</p><p>
+													<code>UPDATE</code><br/>
+													curl -H "Accept: application/json" -H "Content-Type: application/json" -H "MEMBERID: 1Raq4LFZAKqEVf" -H "APPID: 1RbLQeaPv0ArmS" -X PUT -d "{\"entity\" :\"game\",\"data\" :{\"desc\":\"1game\",\"id\":\"273adb7d-1302-4963-b141-e3339db37731\",\"name\":\"1game demo\"}}" http://192.168.100.151:3000/main/crud_at
+</p><p>
+													<code>DELETE</code><br/>
+													curl -H "Accept: application/json" -H "Content-Type: application/json" -H "MEMBERID: 1Raq4LFZAKqEVf" -H "APPID: 1RbLQeaPv0ArmS" -X DELETE -d "{\"entity\" :\"game\",\"data\" :{\"id\":\"273adb7d-1302-4963-b141-e3339db37731\"}}" http://192.168.100.151:3000/main/crud_at
+												</p><p>
+
+												<code>SIGNUP</code><br/>
+												curl -H "Accept: application/json" -H "Content-Type: application/json" -H "MEMBERID: 1Rfx9V6fEuN9gh" -H "APPID: 1VCnzIhA4cjNAi" -X POST -d "{\"full_name\" :\"Buyantorgil Enkhbaatar\", \"email\" :\"buyakao12@yahoo.com\", \"password\" :\"password\"}" http://api.dynas.mn/v1/signup
+</p><p>
+												<code>SIGNIN</code><br/>
+												curl -H "Accept: application/json" -H "Content-Type: application/json" -H "MEMBERID: 1Raq4LFZAKqEVf" -H "APPID: 1RbLQeaPv0ArmS" -X POST -d "{\"email\" :\"buyakao@yahoo.com\", \"password\" :\"password\"}" http://api.dynas.mn/v1/signin
+</p><p>
+												<code>GETTOKEN</code><br/>
+												curl -H "Accept: application/json" -H "Content-Type: application/json" -H "MEMBERID: 1Raq4LFZAKqEVf" -H "APPID: 1RbLQeaPv0ArmS" -X GET -d "{\"email\" :\"buyakao@yahoo.com\"}" http://api.dynas.mn/v1/get_token
+</p><p>
+												<code>CLEARTOKEN</code><br/>
+												curl -H "Accept: application/json" -H "Content-Type: application/json" -H "MEMBERID: 1Raq4LFZAKqEVf" -H "APPID: 1RbLQeaPv0ArmS" -H "Authorization:Token token=\"YOURTOKEN\"" -X GET http://api.dynas.mn/v1/clear_token
+</p><p>
+												<code>RESET PASSWORD</code><br/>
+												curl -H "Accept: application/json" -H "Content-Type: application/json" -H "MEMBERID: 1Raq4LFZAKqEVf" -H "APPID: 1RbLQeaPv0ArmS" -H "Authorization:Token token=\"YOURTOKEN\"" -X POST -d "{\"old_password\" :\"password\",\"new_password\" :\"personal\"}" http://api.dynas.mn/v1/reset_password
+</p><p>
+												<code>GET COUPONS WITH BEACON UUID</code><br/>
+												curl -H "Accept: application/json" -H "Content-Type: application/json" -H "MEMBERID: 1Rfx9V6fEuN9gh" -X GET -d "{\"beacon_uuid\" :\"1234567890\"}" http://api.dynas.mn/v1/coupons
+</p>
                     </div>
                 </div>
             </div>
