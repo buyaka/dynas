@@ -42,6 +42,13 @@
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
+
+          <l1>
+            <form class="navbar-form navbar-right">
+              <input type="text" class="form-control" placeholder="Search...">
+            </form>
+          </l1>
+
           <% if member_signed_in? %>
               <li><%= link_to('Edit registration', core.edit_member_registration_path) %></li>
               <li><%= link_to('Sign out', core.destroy_member_session_path, :method => :get) %></li>
@@ -51,9 +58,6 @@
           <% end %>
         </ul>
 
-        <form class="navbar-form navbar-right">
-          <input type="text" class="form-control" placeholder="Search...">
-        </form>
       </div>
     </div>
   </nav>
@@ -64,15 +68,15 @@
       <!--Sidebar menu-->
       <div class="col-sm-3 col-md-2 sidebar">
         <ul class="nav nav-sidebar">
-          <li class="active"><%= link_to("Fieldtypes", core.field_types_path) %></li>
-          <li><%= link_to("Applications", core.apps_path) %></li>
-          <li><%= link_to("API index", core.crud_index_path) %></li>
+          <li<%= params[:controller].to_s=="core/field_types" ? ' class="active"'.html_safe : '' %>><%= link_to("Fieldtypes", core.field_types_path) %></li>
+          <li<%= params[:controller].to_s=="core/apps" ? ' class="active"'.html_safe : '' %>><%= link_to("Applications", core.apps_path) %></li>
+          <li<%= params[:controller].to_s=="core/api_indexxxx" ? ' class="active"'.html_safe : '' %>><%= link_to("API index", core.crud_index_path) %></li>
         </ul>
         <ul class="nav nav-sidebar">
-          <li><%= link_to("Advertiser", services_ad.advertisers_path) %></li>
-          <li><%= link_to("Ad Types", services_ad.ad_types_path) %></li>
-          <li><%= link_to("iBeacons", services_ibeacon.beacons_path) %></li>
-          <li><%= link_to("Coupons", services_ecoupon.coupons_path) %></li>
+          <li<%= params[:controller].to_s=="ad/advertisers" ? ' class="active"'.html_safe : '' %>><%= link_to("Advertiser", services_ad.advertisers_path) %></li>
+          <li<%= params[:controller].to_s=="ad/ad_types" ? ' class="active"'.html_safe : '' %>><%= link_to("Ad Types", services_ad.ad_types_path) %></li>
+          <li<%= params[:controller].to_s=="ibeacon/beacons" ? ' class="active"'.html_safe : '' %>><%= link_to("iBeacons", services_ibeacon.beacons_path) %></li>
+          <li<%= params[:controller].to_s=="ecoupon/coupons" ? ' class="active"'.html_safe : '' %>><%= link_to("Coupons", services_ecoupon.coupons_path) %></li>
         </ul>
       </div><!-- Sidebar menu-->
       <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
