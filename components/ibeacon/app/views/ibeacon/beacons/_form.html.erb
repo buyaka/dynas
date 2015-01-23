@@ -11,23 +11,23 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :uuid %><br>
     <%= f.text_field :uuid %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :major %><br>
     <%= f.number_field :major %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :minor %><br>
     <%= f.number_field :minor %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :note %><br>
     <%= f.text_area :note %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class=>"btn btn-primary" %>
   </div>
 <% end %>

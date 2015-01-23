@@ -11,23 +11,23 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :height %><br>
     <%= f.number_field :height %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :width %><br>
     <%= f.number_field :width %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :note %><br>
     <%= f.text_field :note %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class=>"btn btn-primary" %>
   </div>
 <% end %>

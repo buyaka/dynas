@@ -3,6 +3,8 @@ module Ecoupon
     before_filter :get_required_data
     before_action :set_coupon, only: [:show, :edit, :update, :destroy, :banner]
 
+    layout "frontend/main"
+
     respond_to :html
 
     def index

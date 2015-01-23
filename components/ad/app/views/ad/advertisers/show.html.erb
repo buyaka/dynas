@@ -1,19 +1,21 @@
-<p id="notice"><%= notice %></p>
+<% if notice.present? %>
+    <div id="notice" class="alert alert-info" role="alert"><%= notice %></div>
+<% end %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @advertiser.name %>
-</p>
+<div class="panel panel-default">
+  <dl class="dl-horizontal" style="padding-top: 15px;">
+    <dt>Name:</dt>
+    <dd><%= @advertiser.name %></dd>
 
-<p>
-  <strong>Note:</strong>
-  <%= @advertiser.note %>
-</p>
+    <dt>Note:</dt>
+    <dd><%= @advertiser.note %></dd>
 
-<p>
-  <strong>Level:</strong>
-  <%= @advertiser.level %>
-</p>
+    <dt>Level:</dt>
+    <dd><%= @advertiser.level %></dd>
+  </dl>
+</div>
+
+<br>
 
 <%= link_to 'Edit', edit_advertiser_path(@advertiser) %> |
 <%= link_to 'Back', advertisers_path %>|

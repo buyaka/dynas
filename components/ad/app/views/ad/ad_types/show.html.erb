@@ -1,24 +1,22 @@
-<p id="notice"><%= notice %></p>
+<% if notice.present? %>
+    <div id="notice" class="alert alert-info" role="alert"><%= notice %></div>
+<% end %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @ad_type.name %>
-</p>
+<div class="panel panel-default">
+  <dl class="dl-horizontal" style="padding-top: 15px;">
+    <dt>Name:</dt>
+    <dd><%= @ad_type.name %></dd>
 
-<p>
-  <strong>Height:</strong>
-  <%= @ad_type.height %>
-</p>
+    <dt>Height:</dt>
+    <dd><%= @ad_type.height %></dd>
 
-<p>
-  <strong>Width:</strong>
-  <%= @ad_type.width %>
-</p>
+    <dt>Width:</dt>
+    <dd><%= @ad_type.width %></dd>
 
-<p>
-  <strong>Note:</strong>
-  <%= @ad_type.note %>
-</p>
+    <dt>Note:</dt>
+    <dd><%= @ad_type.note %></dd>
+  </dl>
+</div>
 
 <%= link_to 'Edit', edit_ad_type_path(@ad_type) %> |
 <%= link_to 'Back', ad_types_path %>

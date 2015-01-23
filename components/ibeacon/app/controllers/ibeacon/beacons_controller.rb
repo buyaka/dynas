@@ -3,6 +3,8 @@ module Ibeacon
     before_filter :get_required_data
     before_action :set_object, only: [:show, :edit, :update, :destroy]
 
+    layout "frontend/main"
+
     def index
       @beacons = Beacon.all
     end

@@ -1,19 +1,21 @@
-<p id="notice"><%= notice %></p>
+<% if notice.present? %>
+    <div id="notice" class="alert alert-info" role="alert"><%= notice %></div>
+<% end %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @field_type.name %>
-</p>
+<div class="panel panel-default">
+  <dl class="dl-horizontal" style="padding-top: 15px;">
+    <dt>Name:</dt>
+    <dd><%= @field_type.id %></dd>
 
-<p>
-  <strong>Value:</strong>
-  <%= @field_type.value %>
-</p>
+    <dt>Value:</dt>
+    <dd><%= @field_type.value %></dd>
 
-<p>
-  <strong>Note:</strong>
-  <%= @field_type.note %>
-</p>
+    <dt>Note:</dt>
+    <dd><%= @field_type.note %></dd>
+  </dl>
+</div>
+
+<br>
 
 <%= link_to 'Edit', edit_field_type_path(@field_type) %> |
 <%= link_to 'Back', field_types_path %>

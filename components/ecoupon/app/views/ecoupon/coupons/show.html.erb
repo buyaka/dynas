@@ -1,19 +1,19 @@
-<p id="notice"><%= notice %></p>
+<% if notice.present? %>
+    <div id="notice" class="alert alert-infos" role="alert"><%= notice %></div>
+<% end %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @coupon.name %>
-</p>
+<div class="panel panel-default">
+  <dl class="dl-horizontal" style="padding-top: 15px;">
+    <dt>Name:</dt>
+    <dd><%= @coupon.name %></dd>
 
-<p>
-  <strong>Banner:</strong>
-  <%= image_tag banner_coupon_path(@coupon) %>
-</p>
+    <dt>Banner:</dt>
+    <dd><%= image_tag banner_coupon_path(@coupon) %></dd>
 
-<p>
-  <strong>Beacon:</strong>
-  <%= @beacon.uuid if @coupon.beacon_id != nil and !@coupon.beacon_id.blank? %>
-</p>
+    <dt>Beacon:</dt>
+    <dd><%= @beacon.uuid if @coupon.beacon_id != nil and !@coupon.beacon_id.blank? %></dd>
+  </dl>
+</div>
 
 <%= link_to 'Edit', edit_coupon_path(@coupon) %> |
 <%= link_to 'Back', coupons_path %>

@@ -1,29 +1,27 @@
-<p id="notice"><%= notice %></p>
+<% if notice.present? %>
+    <div id="notice" class="alert alert-infos" role="alert"><%= notice %></div>
+<% end %>
 
-<p>
-  <strong>ID:</strong>
-  <%= @beacon.id %>
-</p>
+<div class="panel panel-default">
+  <dl class="dl-horizontal" style="padding-top: 15px;">
+    <dt>ID:</dt>
+    <dd><%= @beacon.id %></dd>
 
-<p>
-  <strong>UUID:</strong>
-  <%= @beacon.uuid %>
-</p>
+    <dt>UUID:</dt>
+    <dd><%= @beacon.uuid %></dd>
 
-<p>
-  <strong>Major:</strong>
-  <%= @beacon.major %>
-</p>
+    <dt>Major:</dt>
+    <dd><%= @beacon.major %></dd>
 
-<p>
-  <strong>Minor:</strong>
-  <%= @beacon.minor %>
-</p>
+    <dt>Minor:</dt>
+    <dd><%= @beacon.minor %></dd>
 
-<p>
-  <strong>Note:</strong>
-  <%= @beacon.note %>
-</p>
+    <dt>Note:</dt>
+    <dd><%= @beacon.note %></dd>
+
+
+  </dl>
+</div>
 
 <%= link_to 'Edit', edit_beacon_path(@beacon) %> |
 <%= link_to 'Back', beacons_path %>

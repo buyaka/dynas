@@ -1,7 +1,7 @@
 module Core
   class ApplicationController < ActionController::Base
 
-		layout "frontend/guest"
+		layout "frontend/main"
 
   	helper_method :set_db
 

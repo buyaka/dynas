@@ -11,23 +11,23 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :banner %><br>
     <%= f.file_field :banner %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :url %><br>
     <%= f.text_field :url %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :beacon_id %><br>
     <%= f.collection_select(:beacon_id, Ibeacon::Beacon.all, :id, :uuid, {include_blank: 'Select your Beacon'}) %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class=>"btn btn-primary" %>
   </div>
 <% end %>
