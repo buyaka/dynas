@@ -1,20 +1,4 @@
-<% if notice.present? %>
-  <div id="notice" class="alert alert-info" role="alert"><%= notice %></div>
-<% end %>
-
-<div class="panel panel-default">
-  <dl class="dl-horizontal" style="padding-top: 15px;">
-    <dt>Name:</dt>
-    <dd><%= @entity.name %></dd>
-    <dt>App:</dt>
-    <dd><%= @entity.app_id %></dd>
-    <dt>Note:</dt>
-    <dd><%= @entity.note %></dd>
-  </dl>
-</div>
-
-
-<h1>Fields</h1>
+<h1><%= @entity.name %> fields</h1>
 
 <table class="table table-striped">
   <thead>
@@ -40,7 +24,6 @@
   </tbody>
 </table>
 
-<%= link_to 'Edit', edit_app_entity_path(@entity, @app) %> |
-<%= link_to 'Back', app_entities_path(@app) %> |
-<%= link_to 'Datas', app_entity_datas_path(@app, @entity) %>
+<br>
 
+<%= link_to 'New Field', new_app_entity_field_path(@app, @entity), :class=>"btn btn-primary" %>

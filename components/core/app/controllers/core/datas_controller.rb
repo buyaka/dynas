@@ -4,19 +4,17 @@ module Core
     before_action :set_object, only: [:show, :edit, :update, :destroy]
 
     def index
-      @entities = Entity.where(:app_id => @app.id)
       @datas = NoBrainer.run { |r| 
         r.db(current_member.id).table(@entity.name)
       }
-      
-      #Model.new_from_db(attrs)
     end
 
     def show
+      
     end
 
     def new
-      @entity = Entity.new(:app_id => @app.id)
+      @obj = Model.new_from_db(object).new(:entity_id => @entity.id)
     end
 
     def edit
@@ -64,11 +62,16 @@ module Core
       end
       
       def set_entity
-        @app = Entity.find(params[:entity_id])
+        @entity = Entity.find(params[:entity_id])
       end
       
-      def entity_params
-        params.require(:entity).permit(:name, :app_id, :note)
+      def set_object
+        object = NoBrainer.run { |r| 
+          r.db(current_member.id).table(@entity.name).get(params[:id])
+        }
+        @obj = Model.new_from_db(object)
+        puts @obj.column_names
       end
+      
   end
 end

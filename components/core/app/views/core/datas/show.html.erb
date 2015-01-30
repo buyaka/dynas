@@ -2,19 +2,6 @@
 
 <p>
   <strong>Name:</strong>
-  <%= @entity.name %>
+  <%= @mdl_obj.to_json %>
 </p>
-
-<p>
-  <strong>App:</strong>
-  <%= @entity.app_id %>
-</p>
-
-<p>
-  <strong>Note:</strong>
-  <%= @entity.note %>
-</p>
-
-<%= link_to 'Edit', edit_app_entity_path(@entity, @app) %> |
-<%= link_to 'Back', app_entities_path(@app) %>
 

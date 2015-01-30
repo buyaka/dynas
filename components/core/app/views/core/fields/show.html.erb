@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @field.name %>
+</p>
+
+<p>
+  <strong>FieldType:</strong>
+  <%= @field.field_type %>
+</p>
+
+<p>
+  <strong>App:</strong>
+  <%= @app.name %>
+</p>
+
+<p>
+  <strong>Entity:</strong>
+  <%= @entity.name %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @field.note %>
+</p>
+
+<%= link_to 'Edit', edit_app_entity_field_path(@app, @entity, @field) %> |
+<%= link_to 'Back', app_entity_fields_path(@app, @entity) %> |
+<%= link_to 'Fields', app_entity_fields_path(@app, @entity) %>
+

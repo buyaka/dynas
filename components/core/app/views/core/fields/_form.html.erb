@@ -1,0 +1,33 @@
+<%= form_for [@app, @entity, @field] do |f| %>
+    <div class="form-group">
+
+  <% if @entity.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@entity.errors.count, "error") %> prohibited this entity from being saved:</h2>
+
+      <ul>
+      <% @entity.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="form-group">
+    <%= f.label :field_type %><br>
+    <%= f.collection_select(:field_type, Core::FieldType.all, :id, :name) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :note %><br>
+    <%= f.text_field :note %>
+  </div>
+  <div class="actions">
+    <%= f.submit :class=>"btn btn-primary" %>
+  </div>
+
+    </div>
+<% end %>

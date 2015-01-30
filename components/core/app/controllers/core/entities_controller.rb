@@ -8,6 +8,7 @@ module Core
     end
 
     def show
+      @fields = Field.where(:entity_id => @entity.id)
     end
     
     def document

@@ -2,7 +2,7 @@ module Core
 	class Entity
 	  include NoBrainer::Document
 	  include NoBrainer::Document::Timestamps
-  	  NoBrainer::Document::DynamicAttributes
+  	NoBrainer::Document::DynamicAttributes
 
 	  store_in :database => ->{ "#{Thread.current[:member]}" }
 	  #belongs_to :app

@@ -1,20 +1,5 @@
-<p id="notice"><%= notice %></p>
+<h1>Editing entity</h1>
 
-<p>
-  <strong>Name:</strong>
-  <%= @entity.name %>
-</p>
+<%= render 'form' %>
 
-<p>
-  <strong>App:</strong>
-  <%= @entity.app_id %>
-</p>
-
-<p>
-  <strong>Note:</strong>
-  <%= @entity.note %>
-</p>
-
-<%= link_to 'Edit', edit_app_entity_path(@entity, @app) %> |
-<%= link_to 'Back', app_entities_path(@app) %>
-
+<%= link_to 'Show', app_entity_path(@app,@entity) %> 

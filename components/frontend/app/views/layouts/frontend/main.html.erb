@@ -33,7 +33,6 @@
         <ul class="nav navbar-nav">
           <li><%= link_to("Fieldtypes", core.field_types_path) %></li>
           <li><%= link_to("Applications", core.apps_path) %></li>
-          <li><%= link_to("API index", core.crud_index_path) %></li>
 
           <li><%= link_to("Advertiser", services_ad.advertisers_path) %></li>
           <li><%= link_to("Ad Types", services_ad.ad_types_path) %></li>
@@ -70,7 +69,6 @@
         <ul class="nav nav-sidebar">
           <li<%= params[:controller].to_s=="core/field_types" ? ' class="active"'.html_safe : '' %>><%= link_to("Fieldtypes", core.field_types_path) %></li>
           <li<%= params[:controller].to_s=="core/apps" ? ' class="active"'.html_safe : '' %>><%= link_to("Applications", core.apps_path) %></li>
-          <li<%= params[:controller].to_s=="core/api_indexxxx" ? ' class="active"'.html_safe : '' %>><%= link_to("API index", core.crud_index_path) %></li>
         </ul>
         <ul class="nav nav-sidebar">
           <li<%= params[:controller].to_s=="ad/advertisers" ? ' class="active"'.html_safe : '' %>><%= link_to("Advertiser", services_ad.advertisers_path) %></li>
