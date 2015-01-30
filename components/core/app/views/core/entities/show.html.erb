@@ -30,7 +30,7 @@
     <% @fields.each do |field| %>
       <tr>
         <td><%= field.name %></td>
-        <td><%= field.field_type %></td>
+        <td><%= Core::FieldType.find(field.field_type).name %></td>
         <td><%= field.note %></td>
         <td><%= link_to 'Show', [@app, @entity, field] %></td>
         <td><%= link_to 'Edit', edit_app_entity_field_path(@app, @entity, field) %></td>
