@@ -19,7 +19,7 @@
 	</div>
 	<div class="form-group">
 		<%= f.label :field_type %><br>
-		<%= f.collection_select(:field_type, Core::FieldType.all, :id, :name) %>
+		<%= f.collection_select(:field_type, Core::FieldType.all, :name, :value) %>
 	</div>
 	<div class="form-group">
 		<%= f.label :note %><br>

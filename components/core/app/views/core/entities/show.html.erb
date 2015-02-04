@@ -30,7 +30,7 @@
     <% @fields.each do |field| %>
       <tr>
         <td><%= field.name %></td>
-        <td><%= Core::FieldType.find(field.field_type).name %></td>
+        <td><%= field.field_type %></td>
         <td><%= field.note %></td>
         <td><%= link_to 'Show', [@app, @entity, field] %></td>
         <td><%= link_to 'Edit', edit_app_entity_field_path(@app, @entity, field) %></td>
@@ -42,5 +42,6 @@
 
 <%= link_to 'Edit', edit_app_entity_path(@entity, @app) %> |
 <%= link_to 'Back', app_entities_path(@app) %> |
+<%= link_to 'Fields', app_entity_fields_path(@app, @entity) %> |
 <%= link_to 'Datas', app_entity_datas_path(@app, @entity) %>
 

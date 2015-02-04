@@ -1,5 +1,17 @@
 <h1>Editing entity</h1>
 
-<%= render 'form' %>
+<%= form_tag(app_entity_data_path(@app, @entity, @object['id'] ), method: :put) do %>
+  <%= hidden_field_tag "data[id]", @object['id'] %>
+  <% @attrs.each  do |a| %>
+    <div class="field">
+      <%= label :data, a.name %><br>
+      <%= text_field_tag 'data['+a.name+']', @object[a.name] %>
+    </div>
+  <% end %>
 
-<%= link_to 'Back', app_entity_data_path(@app, @entity, @obj) %>
+  <div class="actions">
+    <%= submit_tag "Save" %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', app_entity_datas_path(@app, @entity) %>

@@ -1,4 +1,5 @@
-<%= form_for [@app, @entity] do |f| %>
+<%#= form_for [@app, @entity,@data ] do |f| %>
+<%= form_for @data, as: post, url app_entity_datas_path(@app, @entity),  method :post do |f| %>
   <% if @entity.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@entity.errors.count, "error") %> prohibited this entity from being saved:</h2>
@@ -11,14 +12,13 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :note %><br>
-    <%= f.text_field :note %>
-  </div>
+  <% @attrs.each  do |a| %>
+    <div class="field">
+      <%= label :data, a.name %><br>
+      <%= text_field_tag 'data['+a.name+']' %>
+    </div>
+  <% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>

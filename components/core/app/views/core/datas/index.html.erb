@@ -4,20 +4,21 @@
 <table>
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Content</th>
+      <% @attrs.each do |a| %>
+      <th><%= a.name %></th>
+      <% end %>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-		<%# render @datas.to_yaml %>
     <% @datas.each do |d| %>
       <tr>
-        <td><%= d["title"] %></td>
-        <td><%= d["content"] %></td>
-        <td><%= link_to 'Edit', "#" %></td>
-        <td><%= link_to 'Destroy', "#" , method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% @attrs.each do |a| %>
+        <td><%= d[a.name] %></td>
+        <% end %>
+        <td><%= link_to 'Edit', edit_app_entity_data_path(@app,@entity, d['id']) %></td>
+        <td><%= link_to 'Destroy', app_entity_data_path(@app,@entity, d['id'])  , method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
